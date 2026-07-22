@@ -12,7 +12,7 @@
 
 # Ontology metadata
 <http://example.com/dpp> a owl:Ontology ;
-  rdfs:label "Hybrid DPP reasoning ontology (Oslo)" ;
+  rdfs:label "Hybrid DPP reasoning ontology" ;
   rdfs:comment """Engineering-informatics DPP schema used by the calibration-aware
   neuro-symbolic framework. Designed to align with the CIRPASS-2 EU DPP Core
   Ontology Proposal (Maigre et al., March 2025, DOI 10.5281/zenodo.14892666);
