@@ -1,0 +1,63 @@
+# Bias-correction anchor vocabulary + declarations for COMPASS bias-aware QA.
+#
+# These triples make the numeric "external anchor" of the latent-bias correction
+# AUDITABLE and KNOWLEDGE-GRAPH-GROUNDED, instead of a hard-coded constant:
+#   * ex:direction        -- attribute polarity (higher is worse / better)
+#   * ex:expectedGroupGap -- the auditable policy/expert assumption for the true
+#                            EU-vs-Global-South disparity of a comparable class
+#   * ex:groupGapEpsilon  -- constraint tolerance on that gap
+#
+# Each anchor carries an rdfs:comment stating its provenance/justification, so a
+# reviewer or auditor can see exactly where the assumption comes from. Values
+# here reproduce the framework's defaults; replace expectedGroupGap with a
+# regulator/expert-endorsed figure or a value derived from an audited clean
+# reference sample when available.
+
+@prefix ex:   <http://example.com/dpp#> .
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+### Vocabulary
+ex:AttributeAnchor a rdfs:Class ;
+  rdfs:label "Attribute bias-correction anchor" ;
+  rdfs:comment "Auditable anchor for the latent-bias correction of one numeric sustainability attribute." .
+
+ex:attributeKey     a rdf:Property ; rdfs:domain ex:AttributeAnchor ; rdfs:range xsd:string ;
+  rdfs:comment "Column key of the attribute in the product records." .
+ex:direction        a rdf:Property ; rdfs:domain ex:AttributeAnchor ;
+  rdfs:comment "Attribute polarity: ex:higherIsWorse or ex:higherIsBetter." .
+ex:expectedGroupGap a rdf:Property ; rdfs:domain ex:AttributeAnchor ; rdfs:range xsd:float ;
+  rdfs:comment "Auditable policy/expert assumption for the true GS-EU group gap." .
+ex:groupGapEpsilon  a rdf:Property ; rdfs:domain ex:AttributeAnchor ; rdfs:range xsd:float ;
+  rdfs:comment "Constraint tolerance (epsilon) on the group gap." .
+
+ex:higherIsWorse  a ex:PolarityValue ; rdfs:comment "Larger recorded value is the adverse direction (e.g. carbon)." .
+ex:higherIsBetter a ex:PolarityValue ; rdfs:comment "Larger recorded value is the desirable direction (e.g. repairability)." .
+
+### Attribute anchors (one per numeric attribute)
+
+ex:anchor_carbon a ex:AttributeAnchor ;
+  ex:attributeKey "carbon_kg_per_kwh" ;
+  ex:direction ex:higherIsWorse ;
+  ex:expectedGroupGap "5.0"^^xsd:float ;
+  ex:groupGapEpsilon "0.35"^^xsd:float ;
+  dcterms:source "Expert/regulatory assumption for comparable product classes; refine with an audited clean sample." ;
+  rdfs:comment "Expected EU-vs-GS carbon-intensity gap; higher carbon is worse." .
+
+ex:anchor_repairability a ex:AttributeAnchor ;
+  ex:attributeKey "repairability_score" ;
+  ex:direction ex:higherIsBetter ;
+  ex:expectedGroupGap "-0.30"^^xsd:float ;
+  ex:groupGapEpsilon "0.35"^^xsd:float ;
+  dcterms:source "Expert/regulatory assumption; refine with an audited clean sample." ;
+  rdfs:comment "Expected EU-vs-GS repairability gap (GS slightly lower); higher repairability is better." .
+
+ex:anchor_durability a ex:AttributeAnchor ;
+  ex:attributeKey "durability_score" ;
+  ex:direction ex:higherIsBetter ;
+  ex:expectedGroupGap "-0.40"^^xsd:float ;
+  ex:groupGapEpsilon "0.35"^^xsd:float ;
+  dcterms:source "Expert/regulatory assumption; refine with an audited clean sample." ;
+  rdfs:comment "Expected EU-vs-GS durability gap (GS slightly lower); higher durability is better." .

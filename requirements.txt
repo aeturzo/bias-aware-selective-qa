@@ -1,0 +1,8 @@
+numpy>=1.24
+pandas>=2.0
+# optional: rdflib gives robust Turtle parsing of the ontology anchor file;
+# without it, a built-in regex reader parses ontology/dpp_anchors.ttl.
+# rdflib>=7.0
+# optional (only for plotting / MCMC diagnostics helpers, not required by the core path)
+# matplotlib>=3.7
+# arviz>=0.17
