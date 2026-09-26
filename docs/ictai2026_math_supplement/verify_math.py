@@ -69,7 +69,7 @@ D2=.5*(3.332/4 + 1.8/1.2); c2=.85*math.exp(-D2)
 add(9,'numeric fusion', abs(c1-.40157849400169354)<1e-14 and abs(c2-.26473685946062153)<1e-14, f'c(s=.8)={c1:.12f}; c(s=1.8)={c2:.12f}.')
 add(9,'bound condition', True, '0<=c<=1 follows if 0<=c_ev<=1 because exp(-D) is in (0,1]; implementation clipping is an additional guard.')
 
-# Eq 10.  The camera-ready equation includes the indicator explicitly:
+# Eq 10
 # y_ij = x_ij [1 + (a_j B / mu_tgt,j) 1[g_i=tgt]].
 xs=[60,75,90]; refs=[55,70,85]; mu=sum(xs)/len(xs); aB=20
 ys=[x*(1+aB/mu) for x in xs]
