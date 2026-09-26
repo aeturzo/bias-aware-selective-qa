@@ -22,9 +22,10 @@ docs/                Equation derivations and mathematical verification
 requirements.txt    Runtime/test dependencies
 ```
 
-The equation-by-equation supplement, its executable verification script, and
-the generated audit are in
-[`docs/ictai2026_math_supplement`](docs/ictai2026_math_supplement/).
+The [`mathematical supplement`](docs/ictai2026_math_supplement/) includes a
+[`detailed PDF derivation`](docs/ictai2026_math_supplement/ICTAI2026_equation_derivations_first_principles.pdf)
+of Equations (1)--(11), their assumptions, and worked numerical examples. It
+also provides an executable verification script and its generated audit.
 
 Large public datasets and generated paper results are intentionally not
 included in this repository. The code paths support NHANES, Open Food
