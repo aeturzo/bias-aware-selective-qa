@@ -1,6 +1,7 @@
 # Bias-Aware Selective QA
 
-Anonymous artifact for double-blind review.
+Artifact accompanying the ICTAI 2026 paper “Beyond Grounding: Bias-Aware
+Selective LLM Question Answering over Biased Records.”
 
 This repository contains a self-contained implementation of bias-aware selective
 question answering for numeric records with systematic measurement bias. The
@@ -17,11 +18,16 @@ scripts/            Experiment and analysis entry points
 tests/              Smoke and behavior tests
 ontology/           Auditable DPP anchor triples
 real_data/          Tiny Climate TRACE sample used only by tests
+docs/                Equation derivations and mathematical verification
 requirements.txt    Runtime/test dependencies
 ```
 
+The equation-by-equation supplement, its executable verification script, and
+the generated audit are in
+[`docs/ictai2026_math_supplement`](docs/ictai2026_math_supplement/).
+
 Large public datasets and generated paper results are intentionally not
-included in this anonymous artifact. The code paths support NHANES, Open Food
+included in this repository. The code paths support NHANES, Open Food
 Facts, and Climate TRACE inputs when those public files are downloaded locally.
 
 ## Quick Start
@@ -70,4 +76,3 @@ python scripts/run_full_experiment.py --seeds 0,1,2,3,4 --n 1500 \
 - The optional real LLM evidence path reads credentials from environment
   variables; no credentials are included in this repository.
 - Generated outputs are ignored by default.
-

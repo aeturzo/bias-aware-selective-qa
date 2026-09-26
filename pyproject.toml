@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "bias-aware-selective-qa"
 version = "0.1.0"
-description = "Anonymous artifact for bias-aware selective QA over systematically biased numeric records."
+description = "Artifact for bias-aware selective QA over systematically biased numeric records."
 requires-python = ">=3.10"
 dependencies = [
   "numpy",
@@ -14,4 +14,3 @@ dependencies = [
 
 [tool.setuptools.packages.find]
 include = ["bias_aware_qa*"]
-

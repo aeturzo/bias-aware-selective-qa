@@ -11,8 +11,8 @@ target?" with four experiment families on the controlled DPP benchmark
                       from independently generated records of the same
                       population (audit seeds != eval seeds).
   E3  Anchor perturbation: resolved anchor scaled by {0.5,0.75,0.9,1.1,1.25,1.5}
-                      and a wrong-sign anchor -- error and abstention should
-                      degrade *predictably* and abstention should rise.
+                      and a wrong-sign anchor -- measure how error and
+                      abstention respond.
   E4  Ontology-only:  weak prior anchor (no audit facts at all).
 
 Outputs: CSVs under --out and LaTeX table fragments under --tex-out.
